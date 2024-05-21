@@ -6,7 +6,14 @@ def add(string)
   elsif string.length == 1
     string.to_i
   else
-    string_to_array(string).reduce(0) { |sum, n| sum + n.to_i }
+    string_to_array(string).reduce(0) do |sum, n|
+      num = n.to_i
+      if num < 0
+        raise "negative numbers not allowed <#{num}>"
+      else
+        sum + num
+      end
+    end
   end
 end
 
