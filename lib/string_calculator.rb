@@ -8,11 +8,7 @@ def add(string)
   else
     string_to_array(string).reduce(0) do |sum, n|
       num = n.to_i
-      if num < 0
-        raise "negative numbers not allowed <#{num}>"
-      else
-        sum + num
-      end
+      sum + raise_if_negative_number(num)
     end
   end
 end
@@ -22,4 +18,12 @@ private
 def string_to_array(string)
   delimt = /[,;\n]/
   string.split(delimt).reject { |chr| chr == "" || chr == "//"}
+end
+
+def raise_if_negative_number(num)
+  if num < 0
+    raise "negative numbers not allowed <#{num}>"
+  else
+    num
+  end
 end
