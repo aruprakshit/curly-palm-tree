@@ -13,6 +13,6 @@ end
 private
 
 def string_to_array(string)
-  delimt = /[,\n]/
-  string.split(delimt)
+  delimt = /[,;\n]/
+  string.split(delimt).reject { |chr| chr == "" || chr == "//"}
 end
