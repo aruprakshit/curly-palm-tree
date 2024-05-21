@@ -11,6 +11,6 @@ end
 private
 
 def string_to_array(string)
-  delimt = ","
+  delimt = /[,\n]/
   string.split(delimt)
 end
