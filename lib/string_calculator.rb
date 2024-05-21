@@ -4,7 +4,6 @@ def add(string, delimt = ',')
   elsif string.length == 1
     string.to_i
   else
-    a, b = string.split(delimt)
-    a.to_i + b.to_i
+    string.split(delimt).reduce(0) { |sum, n| sum + n.to_i }
   end
 end
