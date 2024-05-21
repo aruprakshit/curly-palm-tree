@@ -28,4 +28,8 @@ describe "#add" do
   it 'returns 3 when the input is "//;\n1;2"' do
     expect(add("//;\n1;2")).to eq(3)
   end
+
+  it "throws an error 'negative numbers not allowed <negative_number>' when input string is '1,-2,3'" do
+    expect { add('1,-2,3') }.to raise_error(RuntimeError, "negative numbers not allowed <-2>")
+  end
 end
