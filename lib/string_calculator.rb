@@ -1,6 +1,8 @@
 def add(string)
   if string.empty?
     0
+  elsif string.end_with?("\n")
+    raise 'Invalid string'
   elsif string.length == 1
     string.to_i
   else
