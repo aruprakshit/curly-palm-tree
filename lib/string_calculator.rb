@@ -6,9 +6,11 @@ def add(string)
   elsif string.length == 1
     string.to_i
   else
-    string_to_array(string).reduce(0) do |sum, n|
-      num = n.to_i
-      sum + raise_if_negative_number(num)
+    neg_numbers = string_to_array(string).select { |num| num.to_i < 0 }
+    if neg_numbers.empty?
+      string_to_array(string).reduce(0) { |sum, n| sum + n.to_i }
+    else
+      raise_with_negative_numbers(neg_numbers)
     end
   end
 end
@@ -20,10 +22,6 @@ def string_to_array(string)
   string.split(delimt).reject { |chr| chr == "" || chr == "//"}
 end
 
-def raise_if_negative_number(num)
-  if num < 0
-    raise "negative numbers not allowed <#{num}>"
-  else
-    num
-  end
+def raise_with_negative_numbers(numbers)
+  raise "negative numbers not allowed <#{numbers.join(',')}>"
 end
