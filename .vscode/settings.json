@@ -1,0 +1,10 @@
+{
+  "editor.detectIndentation": false,
+  "editor.tabSize": 2,
+  "[ruby]": {
+    "editor.tabSize": 2
+  },
+  // This one forces the tab to be **space**
+  "editor.insertSpaces": true,
+  "editor.renderWhitespace": "all",
+}
