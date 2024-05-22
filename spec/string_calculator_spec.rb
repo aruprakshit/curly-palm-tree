@@ -2,7 +2,7 @@ require 'string_calculator'
 
 describe "#add" do
   it "returns 0 when the input is an empty string" do
-    add("")
+    expect(add("")).to eq(0)
   end
 
   it "returns the number D when the input is 'D'" do
